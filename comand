@@ -1,0 +1,18 @@
+composer require laravel/breeze --dev
+php artisan breez:install
+
+php artisan make:migration create_admin_table
+
+php artisan make:middleware Admin
+
+php artisan make:seeder AdminSeed
+php artisan make:factory AdminFactory
+php artisan db:seed
+
+User1 
+user1@gmail.com
+User@12345
+
+User2
+user2@gmail.com
+User2@12345
