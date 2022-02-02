@@ -16,3 +16,12 @@ User@12345
 User2
 user2@gmail.com
 User2@12345
+
+admin@gmail.com
+Admin@1234
+
+Using Image intervention to save, resize brand Images
+composer require intervention/image
+After dowlad :
+    1- Add Intervention packaage and alias into app/config
+    2 publish as shown from site guide 

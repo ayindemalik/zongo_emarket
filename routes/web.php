@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\Frontend\Ecommerce\IndexController;
 
@@ -45,10 +47,28 @@ Route::prefix('admin')->group(function (){
     Route::get('/profile/change/password',[AdminProfileController::class, 'adminChangePassword'])->name('admin.profile.changepassword');
     Route::post('/profile/update_password',[AdminProfileController::class, 'adminUpdatePassword'])->name('admin.update.password');    
     
-    });
-    
+});
 /* ------------- End Admin Route -------------- */
 
+/* ------------- Admin Brand Routes -------------- */
+Route::prefix('admin.brand')->group(function (){
+    Route::get('/view_brands',[BrandController::class, 'adminViewBrand'])->name('admin.brands');
+    Route::post('/store',[BrandController::class, 'adminStoreBrand'])->name('admin.brand.store');
+    Route::get('/edit/{id}',[BrandController::class, 'adminEditBrand'])->name('admin.brand.edit');
+    Route::post('/update',[BrandController::class, 'adminUpdateBrand'])->name('admin.brand.update');
+    Route::post('/delete',[BrandController::class, 'adminDeleteBrand'])->name('admin.brand.delete');
+});
+/* ------------- End Brand Route -------------- */
+
+/* ------------- Admin CATEGORY Routes -------------- */
+Route::prefix('admin.category')->group(function (){
+    Route::get('/view_categories',[CategoryController::class, 'adminViewCategories'])->name('admin.categories');
+    Route::post('/store',[CategoryController::class, 'adminStoreCategory'])->name('admin.category.store');
+    Route::get('/edit/{id}',[CategoryController::class, 'adminEditCategory'])->name('admin.category.edit');
+    Route::post('/update',[CategoryController::class, 'adminUpdateCategory'])->name('admin.category.update');
+    Route::get('/delete',[CategoryController::class, 'adminDeleteCategory'])->name('admin.category.delete');
+});
+/* ------------- End Brand Route -------------- */
 
 /* ------------- Seller Route -------------- */
 
